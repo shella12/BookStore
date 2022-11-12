@@ -10,7 +10,7 @@ function NewBook() {
 
       {/* <label>Author</label> */}
       <input type="text" placeholder="author" />
-
+      <button type="submit">submit</button>
     </form>
 
   );
