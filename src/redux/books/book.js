@@ -1,6 +1,6 @@
 let nextBookid = 0;
-const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const ADD_BOOK = 'bookstore/booksReducer/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/booksReducer/REMOVE_BOOK';
 const initialState = [];
 
 const booksReducer = (books = initialState, action) => {
