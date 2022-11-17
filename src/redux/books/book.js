@@ -1,7 +1,20 @@
-let nextBookid = 0;
+import { v4 as uuidv4 } from 'uuid';
+
+let nextBookId = 0;
 const ADD_BOOK = 'bookstore/booksReducer/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/booksReducer/REMOVE_BOOK';
-const initialState = [];
+const initialState = [
+  {
+    id: uuidv4(),
+    title: 'book1',
+    author: 'John doe',
+  },
+  {
+    id: uuidv4(),
+    title: 'book2',
+    author: 'John doe2',
+  },
+];
 
 const booksReducer = (books = initialState, action) => {
   switch (action.type) {
@@ -23,9 +36,9 @@ const booksReducer = (books = initialState, action) => {
 };
 
 export const addBook = (bookTitle, bookAuthor) => {
-  nextBookid += 1;
+  nextBookId = uuidv4();
   return {
-    id: nextBookid,
+    id: nextBookId,
     type: ADD_BOOK,
     title: bookTitle,
     author: bookAuthor,

@@ -1,9 +1,12 @@
 const STATUS = 'bookstore/categoryReducer/CHECK_STATUS';
-const initialState = [];
+const initialState = '';
 const categoryReducer = (categories = initialState, action) => {
   switch (action.type) {
-    case STATUS:
-      return 'Under construction';
+    case STATUS: {
+      console.log('goy');
+      return categories.concat(' ', 'Under construction');
+    }
+
     default:
       return categories;
   }

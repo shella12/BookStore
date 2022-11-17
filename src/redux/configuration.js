@@ -7,6 +7,8 @@ const rootReducer = combineReducers({
   categoriesR: categoryReducer,
 });
 
-const store = configureStore(rootReducer);
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 export default store;

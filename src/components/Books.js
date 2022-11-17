@@ -1,24 +1,18 @@
-// import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import BookList from './BookList';
 import NewBook from './NewBook';
+import { removeBook } from '../redux/books/book';
 
 function Books() {
-  const books = [
-    {
-      title: 'book1',
-      author: 'John doe',
-    },
-    {
-      title: 'book2',
-      author: 'John doe2',
-    },
-
-  ];
+  const books = useSelector((state) => state.booksR);
+  const dispatch = useDispatch();
+  const onRemove = (e) => {
+    dispatch(removeBook(e.target.id));
+  };
   return (
     <div>
       <NewBook />
-      <BookList books={books} />
-      <button type="button">Remove</button>
+      <BookList books={books} onRemove={onRemove} />
     </div>
   );
 }
