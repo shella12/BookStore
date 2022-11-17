@@ -6,7 +6,6 @@ function Categories() {
   const display = useSelector((state) => state.categoriesR);
   const statusCheck = () => {
     dispatch(chkStatus());
-    console.log(display);
   };
 
   return (

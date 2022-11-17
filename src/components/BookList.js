@@ -3,7 +3,6 @@ import Book from './Book';
 
 const BookList = (props) => {
   const { books, onRemove } = props;
-  console.log(books);
   return (
     <div>
       <ul>
