@@ -9,7 +9,7 @@ const Book = (props) => {
       <li id={id}>
         {title}
         {' '}
-        written by
+        ,&nbsp;
         {' '}
         {author}
       </li>
