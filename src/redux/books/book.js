@@ -27,49 +27,37 @@ const usersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchBooks.pending, (state) => {
-      console.log('Inside pending fetch');
-      return {
-        ...state,
-        status: 'pending',
-      };
-    }).addCase(fetchBooks.fulfilled, (state, action) => {
+    builder.addCase(fetchBooks.pending, (state) => ({
+      ...state,
+      status: 'pending',
+    })).addCase(fetchBooks.fulfilled, (state, action) => {
       const newBookList = Object.entries(action.payload).map((item) => ({
         id: item[0],
         title: item[1][0].title,
         author: item[1][0].author,
+        category: item[1][0].category,
       }));
-      console.log('Inside success fetch');
       return {
         ...state,
         status: 'success',
         books: newBookList,
       };
-    }).addCase(addBook.fulfilled, (state) => {
-      console.log('Inside fullfilled addbooks');
-      return {
-        ...state,
-        status: 'idle',
-      };
-    }).addCase(removeBook.pending, (state) => ({
+    }).addCase(addBook.fulfilled, (state) => ({
+      ...state,
+      status: 'idle',
+    })).addCase(removeBook.pending, (state) => ({
       ...state,
       status: 'idle',
     }))
-      .addCase(removeBook.fulfilled, (state) => {
-        console.log('Inside delete');
-        return {
-          ...state,
-          status: 'idle',
-        };
-      })
-      .addCase(removeBook.rejected, (state, action) => {
-        console.log('Inside delete');
-        return {
-          ...state,
-          error: action.error.message,
-          status: 'failed',
-        };
-      });
+      .addCase(removeBook.fulfilled, (state) => ({
+        ...state,
+        status: 'idle',
+      }))
+      .addCase(removeBook.rejected, (state, action) => ({
+        ...state,
+        error: action.error.message,
+        status: 'failed',
+      }));
   },
 });
 

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import BookList from './BookList';
 import NewBook from './NewBook';
 import { removeBook, fetchBooks } from '../redux/books/book';
+import '../css/style.css';
 
 function Books() {
   const dispatch = useDispatch();
@@ -33,10 +34,13 @@ function Books() {
     dispatch(removeBook(e.target.id));
   };
   return (
-    <div>
-      <NewBook />
+    <div className="books-cms">
       <BookList books={books} onRemove={onRemove} />
       <h1>{message}</h1>
+      <span className="title">
+        ADD NEW BOOK
+      </span>
+      <NewBook />
     </div>
   );
 }
