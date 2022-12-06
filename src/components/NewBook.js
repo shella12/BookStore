@@ -30,7 +30,6 @@ function NewBook() {
   };
   return (
     <form>
-      {console.log(categories)}
       <input className="Lesson-input" type="text" name="title" placeholder="Book title" value={title} onChange={(e) => setTitle(e.target.value)} />
       <input className="Lesson-input" type="text" name="author" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} />
       {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
